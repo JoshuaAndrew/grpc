@@ -1,0 +1,30 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.h3c.daemon.grpc.api";
+option java_outer_classname = "GreetingServiceProto";
+
+package api;
+
+
+import "google/protobuf/empty.proto";
+
+// The greeting service definition.
+service GreetingService {
+    // Sends a greeting
+    rpc Say (Request) returns (google.protobuf.Empty);
+    rpc SayHello (Request) returns (Response);
+}
+
+// The request message containing the user's name.
+message Request {
+    string id   = 1;
+    string name = 2;
+    int64  age  = 3;
+}
+
+// The response message containing the greetings
+message Response {
+    string message = 1;
+}
